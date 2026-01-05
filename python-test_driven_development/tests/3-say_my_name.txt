@@ -9,3 +9,7 @@ My name is Bob
 Traceback (most recent call last):
 ...
 TypeError: first_name must be a string
+>>> say_my_name("John", 123)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
