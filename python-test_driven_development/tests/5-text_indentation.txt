@@ -1,0 +1,27 @@
+The ``text_indentation`` function prints a text with 2 new lines after '.', '?' and ':'.
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("Holberton School")
+Holberton School
+
+>>> text_indentation("Holberton.School")
+Holberton.
+
+School
+
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
+
+School?
+
+How are you:
+
+John
+
+>>> text_indentation("  Holberton School  ")
+Holberton School
+
+>>> text_indentation(123)
+Traceback (most recent call last):
+TypeError: text must be a string
