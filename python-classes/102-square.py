@@ -1,10 +1,9 @@
-cat > 102-square.py <<'EOF'
 #!/usr/bin/python3
-"""Defines a Square class with comparisons."""
+"""Square module with comparisons."""
 
 
 class Square:
-    """Represents a square."""
+    """Square class (compares by area)."""
 
     def __init__(self, size=0):
         self.size = size
@@ -41,4 +40,4 @@ class Square:
 
     def __ge__(self, other):
         return self.area() >= other.area()
-EOF
+

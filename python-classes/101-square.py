@@ -1,10 +1,9 @@
-cat > 101-square.py <<'EOF'
 #!/usr/bin/python3
-"""Defines a Square class."""
+"""Square module."""
 
 
 class Square:
-    """Represents a square."""
+    """Square class."""
 
     def __init__(self, size=0, position=(0, 0)):
         self.size = size
@@ -28,14 +27,9 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if (
-            type(value) is not tuple
-            or len(value) != 2
-            or type(value[0]) is not int
-            or type(value[1]) is not int
-            or value[0] < 0
-            or value[1] < 0
-        ):
+        if (type(value) is not tuple or len(value) != 2 or
+                type(value[0]) is not int or type(value[1]) is not int or
+                value[0] < 0 or value[1] < 0):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
@@ -43,7 +37,15 @@ class Square:
         return self.__size * self.__size
 
     def my_print(self):
-        print(str(self))
+        if self.__size == 0:
+            print("")
+            return
+
+        for _ in range(self.__position[1]):
+            print("")
+
+        for _ in range(self.__size):
+            print((" " * self.__position[0]) + ("#" * self.__size))
 
     def __str__(self):
         if self.__size == 0:
@@ -58,4 +60,4 @@ class Square:
             lines.append((" " * self.__position[0]) + ("#" * self.__size))
 
         return "\n".join(lines)
-EOF
+
