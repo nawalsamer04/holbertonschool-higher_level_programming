@@ -3,9 +3,9 @@
 
 
 class MyList(list):
-    """Custom list class with a method to print a sorted list."""
+    """Custom list that can print itself sorted."""
 
     def print_sorted(self):
-        """Prints the list in ascending sorted order."""
+        """Prints a sorted version of the list (ascending)."""
         print(sorted(self))
 
