@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Lists all cities of a state from database."""
+"""Lists all cities of a given state."""
+
 import MySQLdb
 import sys
 
@@ -12,6 +13,7 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
+
     cur = db.cursor()
     cur.execute(
         "SELECT cities.name "
@@ -20,8 +22,8 @@ if __name__ == "__main__":
         "ORDER BY cities.id ASC",
         (sys.argv[4],)
     )
-    rows = cur.fetchall()
 
+    rows = cur.fetchall()
     print(", ".join([row[0] for row in rows]))
 
     cur.close()
