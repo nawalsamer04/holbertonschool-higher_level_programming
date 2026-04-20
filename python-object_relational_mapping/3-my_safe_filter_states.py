@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Takes in arguments and displays matching states safely."""
+"""Safely lists all states matching the user input."""
+
 import MySQLdb
 import sys
 
@@ -12,11 +13,10 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
+
     cur = db.cursor()
-    cur.execute(
-        "SELECT * FROM states WHERE name = %s ORDER BY id ASC",
-        (sys.argv[4],)
-    )
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cur.execute(query, (sys.argv[4],))
     rows = cur.fetchall()
 
     for row in rows:

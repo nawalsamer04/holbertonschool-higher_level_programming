@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Lists states starting with N from hbtn_0e_0_usa."""
+"""Lists all states starting with N from the database."""
+
 import MySQLdb
 import sys
 
@@ -12,6 +13,7 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
+
     cur = db.cursor()
     cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
     rows = cur.fetchall()
