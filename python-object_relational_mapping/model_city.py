@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""Defines City model."""
+"""Contains the class City."""
+
 from sqlalchemy import Column, Integer, String, ForeignKey
 from model_state import Base
 
 
 class City(Base):
-    """City class."""
+    """Representation of a city."""
     __tablename__ = "cities"
 
     id = Column(Integer, primary_key=True, nullable=False)
